@@ -21,6 +21,11 @@ Board                          |  Connectivity     | Storage for credentials and
 `ST NUCLEO_F411RE`                  | Wi-Fi ESP8266     | SD card                 |
 `Ublox UBLOX_EVK_ODIN_W2`           | Wi-Fi             | SD card                 |
 `ST DISCO_L475VG_IOT01A`            | Wi-Fi             | QSPIF                   |
+`Nuvoton NUMAKER_PFM_NUC472`        | Ethernet          | SD card (NUSD)          |
+`Nuvoton NUMAKER_PFM_M487`          | Ethernet          | SD card (NUSD)          |
+`Nuvoton NUMAKER_IOT_M487`          | Wi-Fi ESP8266     | SD card (NUSD)          |
+`Nuvoton NU_PFM_M2351_NPSA_NS`      | Wi-Fi ESP8266     | SD card (NUSD)          |
+`Nuvoton NUMAKER_IOT_M263A`         | Wi-Fi ESP8266     | SD card (NUSD)          |
 
 Build-only = This target is currently verified only via compilation, and is not verified at runtime.
 

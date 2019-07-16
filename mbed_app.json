@@ -136,6 +136,145 @@
             "sd.SPI_MISO"                               : "PC_2",
             "sd.SPI_CLK"                                : "PC_7",
             "sd.SPI_CS"                                 : "PB_9"
+        },
+        "NUMAKER_PFM_NUC472": {
+            "target.network-default-interface-type"     : "ETHERNET",
+            "target.bootloader_img"                     : "bootloader/mbed-bootloader-nuc472-block_device-kvstore-v4.0.2.bin",
+            "target.header_offset"                      : "0x12000",
+            "target.app_offset"                         : "0x12400",
+            "target.components_add"                     : ["NUSD"],
+            "nusd.provide-default-blockdevice"          : true,
+            "nusd.provide-kvstore-other-blockdevice"    : true,
+            "update-client.bootloader-details"          : "0x0",
+            "update-client.application-details"         : "0x12000",
+            "update-client.storage-address"             : "(1024*1024*64)",
+            "update-client.storage-size"                : "((MBED_ROM_START + MBED_ROM_SIZE - APPLICATION_ADDR) * MBED_CONF_UPDATE_CLIENT_STORAGE_LOCATIONS)",
+            "update-client.storage-locations"           : 1,
+
+            "mbed-cloud-client.update-storage"          : "ARM_UCP_FLASHIAP_BLOCKDEVICE",
+            "mbed-cloud-client.external-sst-support"    : 1,
+
+            "storage.storage_type"                      : "FILESYSTEM",
+            "storage_filesystem.filesystem"             : "LITTLE",
+            "storage_filesystem.blockdevice"            : "other",
+            "storage_filesystem.internal_base_address"  : "(MBED_ROM_START + 64*1024)",
+            "storage_filesystem.rbp_internal_size"      : "(2*4*1024)",
+            "storage_filesystem.external_base_address"  : "(0x0)",
+            "storage_filesystem.external_size"          : "(1024*1024*64)",
+
+            "platform.stack-stats-enabled"              : true,
+            "platform.heap-stats-enabled"               : true,
+
+            "target.macros_add"                         : ["MBEDTLS_USER_CONFIG_FILE=\"mbedTLSConfig_mbedOS.h\""]
+        },
+        "NUMAKER_PFM_M487": {
+            "target.network-default-interface-type"     : "ETHERNET",
+            "target.bootloader_img"                     : "bootloader/mbed-bootloader-m487-block_device-kvstore-v4.0.2.bin",
+            "target.header_offset"                      : "0x12000",
+            "target.app_offset"                         : "0x12400",
+            "target.components_add"                     : ["NUSD"],
+            "nusd.provide-default-blockdevice"          : true,
+            "nusd.provide-kvstore-other-blockdevice"    : true,
+            "update-client.bootloader-details"          : "0x0",
+            "update-client.application-details"         : "0x12000",
+            "update-client.storage-address"             : "(1024*1024*64)",
+            "update-client.storage-size"                : "((MBED_ROM_START + MBED_ROM_SIZE - APPLICATION_ADDR) * MBED_CONF_UPDATE_CLIENT_STORAGE_LOCATIONS)",
+            "update-client.storage-locations"           : 1,
+
+            "mbed-cloud-client.update-storage"          : "ARM_UCP_FLASHIAP_BLOCKDEVICE",
+            "mbed-cloud-client.external-sst-support"    : 1,
+
+            "storage.storage_type"                      : "FILESYSTEM",
+            "storage_filesystem.filesystem"             : "LITTLE",
+            "storage_filesystem.blockdevice"            : "other",
+            "storage_filesystem.internal_base_address"  : "(MBED_ROM_START + 64*1024)",
+            "storage_filesystem.rbp_internal_size"      : "(2*4*1024)",
+            "storage_filesystem.external_base_address"  : "(0x0)",
+            "storage_filesystem.external_size"          : "(1024*1024*64)",
+
+            "platform.stack-stats-enabled"              : true,
+            "platform.heap-stats-enabled"               : true,
+
+            "target.macros_add"                         : ["MBEDTLS_USER_CONFIG_FILE=\"mbedTLSConfig_mbedOS.h\""]
+        },
+        "NUMAKER_IOT_M487": {
+            "target.network-default-interface-type"     : "WIFI",
+            "target.bootloader_img"                     : "bootloader/mbed-bootloader-m487_iot-block_device-kvstore-v4.0.2.bin",
+            "target.header_offset"                      : "0x12000",
+            "target.app_offset"                         : "0x12400",
+            "target.components_add"                     : ["NUSD"],
+            "nusd.provide-default-blockdevice"          : true,
+            "nusd.provide-kvstore-other-blockdevice"    : true,
+            "update-client.bootloader-details"          : "0x0",
+            "update-client.application-details"         : "0x12000",
+            "update-client.storage-address"             : "(1024*1024*64)",
+            "update-client.storage-size"                : "((MBED_ROM_START + MBED_ROM_SIZE - APPLICATION_ADDR) * MBED_CONF_UPDATE_CLIENT_STORAGE_LOCATIONS)",
+            "update-client.storage-locations"           : 1,
+
+            "mbed-cloud-client.update-storage"          : "ARM_UCP_FLASHIAP_BLOCKDEVICE",
+            "mbed-cloud-client.external-sst-support"    : 1,
+
+            "storage.storage_type"                      : "FILESYSTEM",
+            "storage_filesystem.filesystem"             : "LITTLE",
+            "storage_filesystem.blockdevice"            : "other",
+            "storage_filesystem.internal_base_address"  : "(MBED_ROM_START + 64*1024)",
+            "storage_filesystem.rbp_internal_size"      : "(2*4*1024)",
+            "storage_filesystem.external_base_address"  : "(0x0)",
+            "storage_filesystem.external_size"          : "(1024*1024*64)",
+
+            "esp8266.tx"                                : "PH_8",
+            "esp8266.rx"                                : "PH_9",
+            "esp8266.rts"                               : "A2",
+            "esp8266.cts"                               : "A3",
+            "esp8266.rst"                               : "PH_3",
+            "esp8266.provide-default"                   : true,
+
+            "platform.stack-stats-enabled"              : true,
+            "platform.heap-stats-enabled"               : true,
+
+            "target.macros_add"                         : ["MBEDTLS_USER_CONFIG_FILE=\"mbedTLSConfig_mbedOS.h\""]
+        },
+        "NUMAKER_PFM_M2351": {
+            "target.network-default-interface-type"     : "WIFI",
+            "target.bootloader_img"                     : "bootloader/mbed-bootloader-m2351_rom_64_448_ram_8_88-block_device-kvstore-v4.0.3.hex",
+            "target.header_offset"                      : "0x12000",
+            "target.app_offset"                         : "0x12400",
+            "target.components_add"                     : ["NUSD"],
+            "nusd.provide-default-blockdevice"          : true,
+            "nusd.provide-kvstore-other-blockdevice"    : true,
+            "update-client.bootloader-details"          : "0x0",
+            "update-client.application-details"         : "0x10022000",
+            "update-client.storage-address"             : "(1024*1024*64)",
+            "update-client.storage-size"                : "((MBED_ROM_START + MBED_ROM_SIZE - APPLICATION_ADDR) * MBED_CONF_UPDATE_CLIENT_STORAGE_LOCATIONS)",
+            "update-client.storage-locations"           : 1,
+
+            "mbed-cloud-client.update-storage"          : "ARM_UCP_FLASHIAP_BLOCKDEVICE",
+            "mbed-cloud-client.external-sst-support"    : 1,
+
+            "storage.storage_type"                      : "FILESYSTEM",
+            "storage_filesystem.filesystem"             : "LITTLE",
+            "storage_filesystem.blockdevice"            : "other",
+            "storage_filesystem.internal_base_address"  : "(MBED_ROM_START + 64*1024)",
+            "storage_filesystem.rbp_internal_size"      : "(2*4*1024)",
+            "storage_filesystem.external_base_address"  : "(0x0)",
+            "storage_filesystem.external_size"          : "(1024*1024*64)",
+
+            "esp8266.tx"                                : "PD_1",
+            "esp8266.rx"                                : "PD_0",
+            "esp8266.rts"                               : "PD_3",
+            "esp8266.cts"                               : "PD_2",
+            "esp8266.rst"                               : "NC",
+            "esp8266.provide-default"                   : false,
+
+            "platform.stack-stats-enabled"              : true,
+            "platform.heap-stats-enabled"               : true,
+
+            "target.macros_add"                         : ["MBEDTLS_USER_CONFIG_FILE=\"mbedTLSConfig_mbedOS.h\""],
+
+            "target.mbed_rom_start"                     : "0x10010000",
+            "target.mbed_rom_size"                      : "0x70000",
+            "target.mbed_ram_start"                     : "0x30002000",
+            "target.mbed_ram_size"                      : "0x16000"
         }
     }
 }

@@ -36,3 +36,6 @@
 # App files
 update_default_resources.c
 mbed_cloud_dev_credentials.c
+
+# Target-specific object files (force-include)
+!targets/TARGET_NUVOTON/**

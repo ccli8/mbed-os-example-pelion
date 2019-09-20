@@ -24,6 +24,14 @@
 
 #include "mbed-trace/mbed_trace.h"             // Required for mbed_trace_*
 
+#if (MBED_HEAP_STATS_ENABLED) || (MBED_STACK_STATS_ENABLED)
+/* Measure memory footprint */
+#include "mbed_stats.h"
+/* Fix up the compilation on AMRCC for PRIu32 */
+#define __STDC_FORMAT_MACROS
+#include <inttypes.h>
+#endif
+
 // Pointers to the resources that will be created in main_application().
 static MbedCloudClient *cloud_client;
 static bool cloud_client_running = true;
@@ -95,6 +103,37 @@ void update_progress(uint32_t progress, uint32_t total)
     uint8_t percent = (uint8_t)((uint64_t)progress * 100 / total);
     printf("Update progress = %" PRIu8 "%%\n", percent);
 }
+
+#if (MBED_HEAP_STATS_ENABLED)
+void print_heap_stats()
+{
+    mbed_stats_heap_t stats;
+    mbed_stats_heap_get(&stats);
+    printf("** MBED HEAP STATS **\n");
+    printf("**** current_size: %" PRIu32 "\n", stats.current_size);
+    printf("**** max_size    : %" PRIu32 "\n", stats.max_size);
+    printf("*****************************\n\n");
+}
+#endif  // MBED_HEAP_STATS_ENABLED
+
+#if (MBED_STACK_STATS_ENABLED)
+void print_stack_statistics()
+{
+    printf("** MBED THREAD STACK STATS **\n");
+    int cnt = osThreadGetCount();
+    mbed_stats_stack_t *stats = (mbed_stats_stack_t*) malloc(cnt * sizeof(mbed_stats_stack_t));
+
+    if (stats) {
+        cnt = mbed_stats_stack_get_each(stats, cnt);
+        for (int i = 0; i < cnt; i++) {
+            printf("Thread: 0x%" PRIx32 ", Stack size: %" PRIu32 ", Max stack: %" PRIu32 "\r\n", stats[i].thread_id, stats[i].reserved_size, stats[i].max_size);
+        }
+
+        free(stats);
+    }
+    printf("*****************************\n\n");
+}
+#endif  // MBED_STACK_STATS_ENABLED
 
 int main(void)
 {
@@ -194,6 +233,16 @@ int main(void)
             printf("Storage erased, rebooting the device.\n\n");
             wait(1);
             NVIC_SystemReset();
+#if (MBED_HEAP_STATS_ENABLED)
+        } else if (in_char == 'h') {
+            print_heap_stats();
+            continue;
+#endif
+#if (MBED_STACK_STATS_ENABLED)
+        } else if (in_char == 's') {
+            print_stack_statistics();
+            continue;
+#endif
         } else if (in_char > 0 && in_char != 0x03) { // Ctrl+C is 0x03 in Mbed OS and Linux returns negative number
             button_press(); // Simulate button press
             continue;

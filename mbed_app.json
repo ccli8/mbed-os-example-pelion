@@ -162,6 +162,9 @@
             "storage_filesystem.external_base_address"  : "(0x0)",
             "storage_filesystem.external_size"          : "(1024*1024*64)",
 
+            "platform.stack-stats-enabled"              : true,
+            "platform.heap-stats-enabled"               : true,
+
             "target.macros_add"                         : ["MBEDTLS_USER_CONFIG_FILE=\"mbedTLSConfig_mbedOS.h\""]
         },
         "NUMAKER_PFM_M487": {
@@ -188,6 +191,9 @@
             "storage_filesystem.rbp_internal_size"      : "(2*4*1024)",
             "storage_filesystem.external_base_address"  : "(0x0)",
             "storage_filesystem.external_size"          : "(1024*1024*64)",
+
+            "platform.stack-stats-enabled"              : true,
+            "platform.heap-stats-enabled"               : true,
 
             "target.macros_add"                         : ["MBEDTLS_USER_CONFIG_FILE=\"mbedTLSConfig_mbedOS.h\""]
         },
@@ -223,6 +229,9 @@
             "esp8266.rst"                               : "PH_3",
             "esp8266.provide-default"                   : true,
 
+            "platform.stack-stats-enabled"              : true,
+            "platform.heap-stats-enabled"               : true,
+
             "target.macros_add"                         : ["MBEDTLS_USER_CONFIG_FILE=\"mbedTLSConfig_mbedOS.h\"", "ESP8266_SEND_TIMEOUT=8000"]
         },
         "NU_PFM_M2351_NPSA_NS": {
@@ -257,6 +266,9 @@
             "esp8266.rst"                               : "NC",
             "esp8266.pwr"                               : "PD_7",
             "esp8266.provide-default"                   : true,
+
+            "platform.stack-stats-enabled"              : true,
+            "platform.heap-stats-enabled"               : true,
 
             "target.macros_add"                         : ["MBEDTLS_USER_CONFIG_FILE=\"mbedTLSConfig_mbedOS.h\"", "ESP8266_SEND_TIMEOUT=8000"],
 
@@ -298,6 +310,9 @@
             "esp8266.cts"                               : "PC_8",
             "esp8266.rst"                               : "PE_12",
             "esp8266.provide-default"                   : true,
+
+            "platform.stack-stats-enabled"              : true,
+            "platform.heap-stats-enabled"               : true,
 
             "target.macros_add"                         : ["MBEDTLS_USER_CONFIG_FILE=\"mbedTLSConfig_mbedOS.h\"", "ESP8266_SEND_TIMEOUT=8000"]
         }
